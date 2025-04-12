@@ -13,34 +13,24 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // Skeleton Widget
       home: Scaffold(
-        backgroundColor: Colors.blue,
-        appBar: AppBar(
-          title: Text("My App Bar! "),
-          backgroundColor: Colors.red,
-          elevation: 0,
-          leading: Icon(Icons.menu),
-          actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.logout))
-          ],
-        ),
-        body: Center ( 
-          child: Container(
-          height: 300,
-          width: 300,
-          decoration: BoxDecoration( 
-          color: Colors.green,
-          borderRadius: BorderRadius.circular(20),
-          ),
-          child: Center( 
-            child:Icon(
-              Icons.favorite,
-              color: Colors.white,
-              size: 32,
+        body: Column( 
+          children: [
+            Container(
+              height: 200,
+              width: 200,
+              color: Colors.blue,
+            ),
+            Container(
+              height: 200,
+              width: 200,
+              color: Colors.red,
+            ),
+            Container(
+              height: 200,
+              width: 200,
+              color: Colors.green,
             )
-
-          ),
-          )
-      ),
+          ])
       ),
     );
   }
