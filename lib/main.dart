@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
             ),
             ),
             Expanded ( 
+              flex: 2,
               child: Container(
               height: 310,
               width: 430,
