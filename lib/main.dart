@@ -13,30 +13,23 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // Skeleton Widget
       home: Scaffold(
-        body: Column( 
+        body: ListView( 
           children: [
-            Expanded ( 
-              child: Container(
+              Container(
               height: 310,
               width: 430,
               color: Colors.blue,
             ),
-            ),
-            Expanded ( 
-              flex: 2,
-              child: Container(
+              Container(
               height: 310,
               width: 430,
               color: Colors.red,
             ),
-            ),
-            Expanded ( 
-              child: Container(
-              height: 310,
-              width: 430,
-              color: Colors.green,
-            ),
-            )
+            Container(
+            height: 510,
+            width: 430,
+            color: Colors.green,
+          ),
            
           ])
       ),
