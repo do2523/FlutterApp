@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  List names = ["Daniel", "Ocampo", "Tim", "Bob"];
 
   @override
   Widget build(BuildContext context) {
@@ -13,25 +15,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // Skeleton Widget
       home: Scaffold(
-        body: ListView( 
-          children: [
-              Container(
-              height: 310,
-              width: 430,
-              color: Colors.blue,
-            ),
-              Container(
-              height: 310,
-              width: 430,
-              color: Colors.red,
-            ),
-            Container(
-            height: 510,
-            width: 430,
-            color: Colors.green,
+        body: ListView.builder(  
+          itemCount: names.length,
+          itemBuilder: (context, index) => ListTile(
+            title: Text(names[index]),
           ),
-           
-          ])
+          ),
       ),
     );
   }
