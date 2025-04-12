@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
       // Skeleton Widget
       home: Scaffold(
         backgroundColor: Colors.blue,
+        appBar: AppBar(
+          title: Text("My App Bar! "),
+          backgroundColor: Colors.red,
+        ),
         body: Center ( 
           child: Container(
           height: 300,
