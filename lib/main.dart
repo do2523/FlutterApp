@@ -15,21 +15,28 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: Column( 
           children: [
-            Container(
+            Expanded ( 
+              child: Container(
               height: 310,
               width: 430,
               color: Colors.blue,
             ),
-            Container(
+            ),
+            Expanded ( 
+              child: Container(
               height: 310,
               width: 430,
               color: Colors.red,
             ),
-            Container(
-              height: 312,
+            ),
+            Expanded ( 
+              child: Container(
+              height: 310,
               width: 430,
               color: Colors.green,
+            ),
             )
+           
           ])
       ),
     );
