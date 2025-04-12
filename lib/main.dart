@@ -7,6 +7,10 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
+  void onUserTap() {
+    print("Googleplex");
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,7 +19,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: GestureDetector(
           onTap: () {
-            print("Googleplex");
+            onUserTap();
           },
           child: Center(
           child: Container(
