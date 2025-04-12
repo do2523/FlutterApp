@@ -23,14 +23,11 @@ class MyApp extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           ),
           child: Center( 
-            child: Text(
-              "Flutter: By Google",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 28,
-                fontWeight: FontWeight.bold
-              ),
-              ),
+            child:Icon(
+              Icons.favorite,
+              color: Colors.white,
+              size: 32,
+            )
 
           ),
           )
