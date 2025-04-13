@@ -3,9 +3,14 @@ import 'package:flutter_application_1/pages/homepage.dart';
 import 'package:flutter_application_1/pages/profile_page.dart';
 import 'package:flutter_application_1/pages/settings_page.dart';
 
-class FirstPage extends StatelessWidget {
+class FirstPage extends StatefulWidget {
   FirstPage({super.key});
 
+  @override
+  State<FirstPage> createState() => _FirstPageState();
+}
+
+class _FirstPageState extends State<FirstPage> {
   int _selectedIndex = 0;
 
   final List _pages = [
@@ -13,6 +18,7 @@ class FirstPage extends StatelessWidget {
     Profile(),
     Settings()
   ];
+
 
   @override
   Widget build(BuildContext context) {
