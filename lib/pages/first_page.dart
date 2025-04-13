@@ -19,6 +19,11 @@ class _FirstPageState extends State<FirstPage> {
     Settings()
   ];
 
+  void _navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +31,8 @@ class _FirstPageState extends State<FirstPage> {
       appBar: AppBar(title: Text("Google Docs")),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _navigateBottomBar,
         items:[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
