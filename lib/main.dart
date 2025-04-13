@@ -1,36 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/first_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
-  void onUserTap() {
-    print("Googleplex");
-  }
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // Skeleton Widget
-      home: Scaffold(
-        body: GestureDetector(
-          onTap: () {
-            onUserTap();
-          },
-          child: Center(
-          child: Container(
-          height: 300,
-          width: 300,
-          color: Colors.green,
-          child: Center(child: Text("Google"))
-        )
-      ),
-      ),
-      ),
+      home: FirstPage(),
     );
   }
 }
