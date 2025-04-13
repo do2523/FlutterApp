@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/first_page.dart';
+import 'package:flutter_application_1/pages/second_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,6 +15,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // Skeleton Widget
       home: FirstPage(),
+      routes: {
+        '/secondpage': (context) => SecondPage()
+      }
     );
   }
 }

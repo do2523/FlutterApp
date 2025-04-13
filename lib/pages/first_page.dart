@@ -13,9 +13,7 @@ class FirstPage extends StatelessWidget {
           child: ElevatedButton(
             child: Text("Go to Gemini"),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage(),
-              )
-              );
+              Navigator.pushNamed(context, '/secondpage');
             },
           )
       ),
