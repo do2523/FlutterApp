@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/homepage.dart';
+import 'package:flutter_application_1/pages/profile_page.dart';
+import 'package:flutter_application_1/pages/settings_page.dart';
 
 class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
+  FirstPage({super.key});
+
+  int _selectedIndex = 0;
+
+  final List _pages = [
+    Homepage(),
+    Profile(),
+    Settings()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Google Docs")),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items:[
           BottomNavigationBarItem(

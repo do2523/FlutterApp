@@ -6,7 +6,8 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Google Slides"),),
+      body: Center(
+        child: Text("Settings Page"),)
     );
   }
 }
