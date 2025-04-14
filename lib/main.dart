@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/first_page.dart';
-import 'package:flutter_application_1/pages/homepage.dart';
-import 'package:flutter_application_1/pages/settings_page.dart';
+import 'package:flutter_application_1/pages/Counter_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,16 +10,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      // Skeleton Widget
-      home: FirstPage(),
-      routes: {
-        '/firstpage': (context) => FirstPage(),
-        '/homepage': (context) => Homepage(),
-        '/settingspage': (context) => Settings(),
-
-      }
+    return MaterialApp( 
+    home: CounterPage(),
     );
   }
 }
