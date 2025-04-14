@@ -11,8 +11,14 @@ class TodoPage extends StatefulWidget {
 class _TodoPageState extends State<TodoPage> {
   TextEditingController myController = TextEditingController();
 
+  String greetingMessage = "";
+
   void greetUser() {
-    print(myController.text);
+    setState(() {
+      greetingMessage = "Hello " + myController.text;
+
+    }
+    );
   }
 
   @override
@@ -24,6 +30,7 @@ class _TodoPageState extends State<TodoPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text(greetingMessage),
               TextField(
                 controller: myController,
                 decoration: InputDecoration(
