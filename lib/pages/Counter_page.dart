@@ -8,8 +8,32 @@ class CounterPage extends StatefulWidget {
 }
 
 class _CounterPageState extends State<CounterPage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+    _counter += 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Button Counter: "),
+            Text(_counter.toString(),
+            style: TextStyle(fontSize: 40)),
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: Text("Increment")
+            ),
+          ]
+        )
+      ), 
+          );
+
   }
 }
