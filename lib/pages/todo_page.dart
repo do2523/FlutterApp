@@ -24,7 +24,21 @@ class _TodoPageState extends State<TodoPage> {
       ),
       body: ListView(
         children: [
-          ToDoTile(),
+          ToDoTile(
+            taskName: "Watch a movie",
+            taskCompleted: false,
+            buttonPressed: (emptyFunction) {},
+          ),
+          ToDoTile(
+            taskName: "Read a book",
+            taskCompleted: false,
+            buttonPressed: (emptyFunction) {},
+          ),
+          ToDoTile(
+            taskName: "Get groceries",
+            taskCompleted: false,
+            buttonPressed: (emptyFunction) {},
+          ),
         ]
       )
     );

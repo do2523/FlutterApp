@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ToDoTile extends StatelessWidget {
-  const ToDoTile({super.key});
+  final String taskName;
+  final bool taskCompleted;
+  Function(bool?)? buttonPressed;
+  ToDoTile({
+    super.key, 
+    required this.taskName,
+    required this.taskCompleted,
+    required this.buttonPressed});
 
-  void changeme() {
-    print("hi");
-  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,8 +18,8 @@ class ToDoTile extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: Row(
           children: [
-            Checkbox(value: value, onChanged: onChanged),
-            Text("Play the guitar",
+            Checkbox(value: taskCompleted, onChanged: buttonPressed),
+            Text(taskName,
             style: TextStyle(
               color: Colors.white,
             ),
