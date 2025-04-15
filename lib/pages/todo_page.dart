@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_application_1/pages/components/todo_tile.dart";
 
 
 class TodoPage extends StatefulWidget {
@@ -9,43 +10,18 @@ class TodoPage extends StatefulWidget {
 }
 
 class _TodoPageState extends State<TodoPage> {
-  TextEditingController myController = TextEditingController();
-
-  String greetingMessage = "";
-
-  void greetUser() {
-    setState(() {
-      greetingMessage = "Hello " + myController.text;
-
-    }
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(greetingMessage),
-              TextField(
-                controller: myController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Type your name...",
-                ),
-          ),
-          // elevatedButton
-          ElevatedButton(onPressed: greetUser, child: Text("Tap for a greeting")), //Test
-
-            ]
-            
-          ),
-        )
-        
+      appBar: AppBar(
+        title: Text("ToDo"),
+        backgroundColor: Colors.blue,
+        elevation: 0,
+      ),
+      body: ListView(
+        children: [
+          ToDoTile(),
+        ]
       )
     );
   }
