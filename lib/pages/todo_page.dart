@@ -10,6 +10,20 @@ class TodoPage extends StatefulWidget {
 }
 
 class _TodoPageState extends State<TodoPage> {
+  List toDoList = [
+    [
+      ["make bed", false],
+      ["go for  a run", false],
+    ],
+
+  ];
+
+  void checkBoxChange(bool? value, int index) {
+    setState(() {
+      toDoList[index][1] = !toDoList[index][1];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,24 +36,17 @@ class _TodoPageState extends State<TodoPage> {
         backgroundColor: Color(0xff34A853),
         elevation: 0,
       ),
-      body: ListView(
-        children: [
-          ToDoTile(
-            taskName: "Watch a movie",
-            taskCompleted: false,
-            buttonPressed: (emptyFunction) {},
-          ),
-          ToDoTile(
-            taskName: "Read a book",
-            taskCompleted: false,
-            buttonPressed: (emptyFunction) {},
-          ),
-          ToDoTile(
-            taskName: "Get groceries",
-            taskCompleted: false,
-            buttonPressed: (emptyFunction) {},
-          ),
-        ]
+      body: ListView.builder(
+        itemCount: toDoList.length,
+        itemBuilder: (context, index) {
+          return ToDoTile(
+            taskName: toDoList[index][0],
+            taskCompleted: toDoList[index][1],
+            buttonPressed: (value) => checkBoxChange(value, index),
+
+          );
+        }
+       
       )
     );
   }
