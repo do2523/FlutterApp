@@ -9,6 +9,7 @@ class DialogBox extends StatelessWidget {
       backgroundColor: Colors.teal,
       content: Container(
         height: 120,
+        child: TextField(),
       ),
     );
   }
