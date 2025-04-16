@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
-  Function(bool?)? buttonPressed;
+  final Function(bool?)? buttonPressed;
   ToDoTile({
     super.key,
     required this.taskName,
@@ -28,7 +28,9 @@ class ToDoTile extends StatelessWidget {
               value: taskCompleted, 
               onChanged: buttonPressed,),
 
-            Text(taskName, style: TextStyle(color: Colors.white)),
+           
+        Text(taskName, 
+        style: TextStyle(decoration: taskCompleted ? TextDecoration.lineThrough : TextDecoration.none)),
           ],
         ),
       ),

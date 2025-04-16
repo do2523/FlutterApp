@@ -11,17 +11,18 @@ class TodoPage extends StatefulWidget {
 
 class _TodoPageState extends State<TodoPage> {
   List toDoList = [
-    [
       ["make bed", false],
       ["go for  a run", false],
-    ],
-
-  ];
+  ];  
 
   void checkBoxChange(bool? value, int index) {
     setState(() {
       toDoList[index][1] = !toDoList[index][1];
     });
+  }
+
+  void addTask() {
+
   }
 
   @override
@@ -36,6 +37,8 @@ class _TodoPageState extends State<TodoPage> {
         backgroundColor: Color(0xff34A853),
         elevation: 0,
       ),
+      floatingActionButton:FloatingActionButton(onPressed: addTask, 
+      child: Icon(Icons.add),),
       body: ListView.builder(
         itemCount: toDoList.length,
         itemBuilder: (context, index) {
