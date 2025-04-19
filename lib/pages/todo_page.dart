@@ -30,6 +30,12 @@ class _TodoPageState extends State<TodoPage> {
       _controller.text = "";
     });
   }
+  // void removeTask() {
+  //   setState(() {
+  //     toDoList.pop([_controller.text, false]);
+  //     _controller.text = "";
+  //   });
+  // }
   void addTask() {
     showDialog(
       context: context,
@@ -41,6 +47,12 @@ class _TodoPageState extends State<TodoPage> {
         );
       }
     );
+  }
+
+  void removeTask(int index) {
+    setState(() {
+      toDoList.removeAt(index);
+    });
   }
 
   @override
@@ -64,6 +76,7 @@ class _TodoPageState extends State<TodoPage> {
             taskName: toDoList[index][0],
             taskCompleted: toDoList[index][1],
             buttonPressed: (value) => checkBoxChange(value, index),
+            removeTask: (context) => removeTask(index),
 
           );
         }

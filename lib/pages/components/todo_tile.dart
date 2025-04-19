@@ -5,11 +5,14 @@ class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
   final Function(bool?)? buttonPressed;
+  Function (BuildContext)? removeTask;
+
   ToDoTile({
     super.key,
     required this.taskName,
     required this.taskCompleted,
     required this.buttonPressed,
+    required this.removeTask,
   });
 
   @override
