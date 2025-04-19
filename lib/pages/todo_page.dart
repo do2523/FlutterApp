@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_application_1/data/database.dart";
 import "package:flutter_application_1/pages/components/dialog_box.dart";
 import "package:flutter_application_1/pages/components/todo_tile.dart";
+import "package:hive/hive.dart";
 
 
 class TodoPage extends StatefulWidget {
@@ -12,25 +13,31 @@ class TodoPage extends StatefulWidget {
 }
 
 class _TodoPageState extends State<TodoPage> {
-  final _myBox = Hive.open('container box');
+  final _myBox = Hive.box('container box');
   final _controller = TextEditingController();
   ToDoDatabase db = ToDoDatabase();
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   void checkBoxChange(bool? value, int index) {
     setState(() {
-      toDoList[index][1] = !toDoList[index][1];
+      db.toDoList[index][1] = !db.toDoList[index][1];
     });
   }
 
   void newTask() {
     setState(() {
-      toDoList.add([_controller.text, false]);
+      db.toDoList.add([_controller.text, false]);
       _controller.text = "";
     });
   }
   // void removeTask() {
   //   setState(() {
-  //     toDoList.pop([_controller.text, false]);
+  //     db.toDoList.pop([_controller.text, false]);
   //     _controller.text = "";
   //   });
   // }
@@ -49,7 +56,7 @@ class _TodoPageState extends State<TodoPage> {
 
   void removeTask(int index) {
     setState(() {
-      toDoList.removeAt(index);
+      db.toDoList.removeAt(index);
     });
   }
 
@@ -68,11 +75,11 @@ class _TodoPageState extends State<TodoPage> {
       floatingActionButton:FloatingActionButton(onPressed: addTask, 
       child: Icon(Icons.add),),
       body: ListView.builder(
-        itemCount: toDoList.length,
+        itemCount: db.toDoList.length,
         itemBuilder: (context, index) {
           return ToDoTile(
-            taskName: toDoList[index][0],
-            taskCompleted: toDoList[index][1],
+            taskName: db.toDoList[index][0],
+            taskCompleted: db.toDoList[index][1],
             buttonPressed: (value) => checkBoxChange(value, index),
             removeTask: (context) => removeTask(index),
 
