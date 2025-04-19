@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_application_1/data/database.dart";
 import "package:flutter_application_1/pages/components/dialog_box.dart";
 import "package:flutter_application_1/pages/components/todo_tile.dart";
 
@@ -11,12 +12,9 @@ class TodoPage extends StatefulWidget {
 }
 
 class _TodoPageState extends State<TodoPage> {
+  final _myBox = Hive.open('container box');
   final _controller = TextEditingController();
-
-  List<List<dynamic>> toDoList = [
-      ["make bed", false],
-      ["go for  a run", false],
-  ];  
+  ToDoDatabase db = ToDoDatabase();
 
   void checkBoxChange(bool? value, int index) {
     setState(() {
