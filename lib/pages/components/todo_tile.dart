@@ -5,7 +5,7 @@ class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
   final Function(bool?)? buttonPressed;
-  Function (BuildContext)? removeTask;
+  Function(BuildContext)? removeTask;
 
   ToDoTile({
     super.key,
@@ -21,13 +21,9 @@ class ToDoTile extends StatelessWidget {
       padding: const EdgeInsets.all(25),
       child: Slidable(
         endActionPane: ActionPane(
-          motion: StretchMotion(), 
-          children: [
-            SlidableAction(
-              onPressed: removeTask,
-              icon: Icons.delete,
-              backgroundColor: Colors.red,)
-          ]),
+          motion: StretchMotion(),
+          children: [SlidableAction(onPressed: removeTask, icon: Icons.delete, backgroundColor: Colors.red)],
+        ),
         child: Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
@@ -37,13 +33,12 @@ class ToDoTile extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Checkbox(
-                value: taskCompleted, 
-                onChanged: buttonPressed,),
-        
-             
-          Text(taskName, 
-          style: TextStyle(decoration: taskCompleted ? TextDecoration.lineThrough : TextDecoration.none)),
+              Checkbox(value: taskCompleted, onChanged: buttonPressed),
+
+              Text(
+                taskName,
+                style: TextStyle(decoration: taskCompleted ? TextDecoration.lineThrough : TextDecoration.none),
+              ),
             ],
           ),
         ),

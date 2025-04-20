@@ -6,12 +6,7 @@ class DialogBox extends StatelessWidget {
   VoidCallback onSave;
   VoidCallback onCancel;
 
-
-   DialogBox({super.key,
-        required this.controller,
-        required this.onSave,
-        required this.onCancel,
-    });
+  DialogBox({super.key, required this.controller, required this.onSave, required this.onCancel});
 
   @override
   Widget build(BuildContext context) {
@@ -20,26 +15,24 @@ class DialogBox extends StatelessWidget {
       content: Container(
         height: 120,
         child: Column(
-          children:[
+          children: [
             TextField(
-            controller: controller,
-            decoration: InputDecoration(border: OutlineInputBorder(),
-            hintText: "New Task",
+              controller: controller,
+              decoration: InputDecoration(border: OutlineInputBorder(), hintText: "New Task"),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  MyButton(text: "Include", onPressed: onSave),
+                  MyButton(text: "Nevermind", onPressed: onCancel),
+                ],
+              ),
+            ),
+          ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 40),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-              MyButton(text: "Include", onPressed: onSave),
-              MyButton(text: "Nevermind", onPressed: onCancel),
-              ],
-          ),
-        ),
-        ],
-        ),
-        )
+      ),
     );
   }
 }

@@ -8,12 +8,12 @@ class ToDoDatabase {
   void firstTimeApp() {
     toDoList = [
       ["Play volleyball", false],
-      ["Study for CS1 Test", false]
+      ["Study for CS1 Test", false],
     ];
   }
 
   void loadData() {
-    toDoList = _myBox.get("TODOLIST"); 
+    toDoList = _myBox.get("TODOLIST");
   }
 
   void updateDataBase() {

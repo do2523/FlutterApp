@@ -4,7 +4,6 @@ import "package:flutter_application_1/pages/components/dialog_box.dart";
 import "package:flutter_application_1/pages/components/todo_tile.dart";
 import "package:hive/hive.dart";
 
-
 class TodoPage extends StatefulWidget {
   const TodoPage({super.key});
 
@@ -20,6 +19,11 @@ class _TodoPageState extends State<TodoPage> {
   @override
   void initState() {
     // TODO: implement initState
+    if (_myBox.get("TODOLIST") == null) {
+      db.firstTimeApp();
+    } else {
+      db.loadData();
+    }
     super.initState();
   }
 
@@ -27,6 +31,7 @@ class _TodoPageState extends State<TodoPage> {
     setState(() {
       db.toDoList[index][1] = !db.toDoList[index][1];
     });
+    db.updateDataBase();
   }
 
   void newTask() {
@@ -34,7 +39,10 @@ class _TodoPageState extends State<TodoPage> {
       db.toDoList.add([_controller.text, false]);
       _controller.text = "";
     });
+    Navigator.of(context).pop();
+    db.updateDataBase();
   }
+
   // void removeTask() {
   //   setState(() {
   //     db.toDoList.pop([_controller.text, false]);
@@ -50,7 +58,7 @@ class _TodoPageState extends State<TodoPage> {
           onSave: newTask,
           onCancel: () => Navigator.of(context).pop(),
         );
-      }
+      },
     );
   }
 
@@ -58,6 +66,7 @@ class _TodoPageState extends State<TodoPage> {
     setState(() {
       db.toDoList.removeAt(index);
     });
+    db.updateDataBase();
   }
 
   @override
@@ -65,15 +74,14 @@ class _TodoPageState extends State<TodoPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("ToDo",
-        style: TextStyle(
-          color: Colors.white,
-        ),),
+        title: Text("ToDo", style: TextStyle(color: Colors.white)),
         backgroundColor: Color(0xff34A853),
         elevation: 0,
       ),
-      floatingActionButton:FloatingActionButton(onPressed: addTask, 
-      child: Icon(Icons.add),),
+      floatingActionButton: FloatingActionButton(
+        onPressed: addTask,
+        child: Icon(Icons.add),
+      ),
       body: ListView.builder(
         itemCount: db.toDoList.length,
         itemBuilder: (context, index) {
@@ -82,11 +90,9 @@ class _TodoPageState extends State<TodoPage> {
             taskCompleted: db.toDoList[index][1],
             buttonPressed: (value) => checkBoxChange(value, index),
             removeTask: (context) => removeTask(index),
-
           );
-        }
-       
-      )
+        },
+      ),
     );
   }
 }
