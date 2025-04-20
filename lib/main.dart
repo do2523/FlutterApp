@@ -1,14 +1,7 @@
-import "package:flutter/material.dart";
-import "package:flutter_application_1/pages/todo_page.dart";
-import "package:hive/hive.dart";
-import "package:hive_flutter/hive_flutter.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/Intro_page.dart';
 
-void main() async {
-  // initialize hive
-  await Hive.initFlutter();
-  // open box
-  var box = await Hive.openBox('container box');
-
+void main() {
   runApp(const MyApp());
 }
 
@@ -17,6 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: TodoPage());
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: IntroPage(),
+    );
   }
 }
