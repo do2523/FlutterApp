@@ -28,6 +28,14 @@ class _HomepageState extends State<Homepage> {
       bottomNavigationBar: BottomNavbar(
         onTabChange: (index) => navigateBottomBar(index),
       ),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            // Handle menu button press
+          },
+        ),
+      ),
       backgroundColor: Colors.grey[300],
     );
   }
